@@ -1,0 +1,1765 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="a WHUer's Notes">
+      
+      
+        <meta name="author" content="Jack">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../linear-algebra/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>极限 - My Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="My Notes" class="md-header__button md-logo" aria-label="My Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              极限
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Jackli08/whu-notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Notes" class="md-nav__button md-logo" aria-label="My Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Jackli08/whu-notes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高等数学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高等数学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    极限
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    极限
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预备知识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="预备知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        集合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邻域
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数集的界
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        映射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数列极限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限的概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限的性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限的四则运算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限存在的判定定理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数极限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数极限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自变量趋于无穷大时函数的极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自变量趋于有限值时函数的极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单侧极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数极限的性质与运算法则
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数极限的性质与运算法则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运算法则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数极限存在条件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数极限存在条件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        归结原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        夹逼准则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无穷小与无穷大
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="无穷小与无穷大">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无穷小
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无穷大
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无穷小的比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数的连续性与间断点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数的连续性与间断点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数的连续性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        间断点及其分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        连续函数性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        闭区间上连续函数的性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../linear-algebra/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性代数
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    线性代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预备知识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="预备知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        集合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邻域
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数集的界
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        映射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数列极限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限的概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限的性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限的四则运算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数列极限存在的判定定理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数极限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数极限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自变量趋于无穷大时函数的极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自变量趋于有限值时函数的极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单侧极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数极限的性质与运算法则
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数极限的性质与运算法则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运算法则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数极限存在条件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数极限存在条件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        归结原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        夹逼准则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无穷小与无穷大
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="无穷小与无穷大">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无穷小
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无穷大
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无穷小的比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数的连续性与间断点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数的连续性与间断点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数的连续性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        间断点及其分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        连续函数性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        闭区间上连续函数的性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">极限与连续</h1>
+<h2 id="_2">预备知识</h2>
+<h3 id="_3">集合</h3>
+<blockquote>
+<p>具有某种特定性质的事物的总体
+1. 常用符号<br>
+   | sign | description |
+   | :---: | :---: |
+   | <span class="arithmatex">\(\phi\)</span> | 空集 |
+   | <span class="arithmatex">\(a \in M\)</span> | a属于M |
+   | <span class="arithmatex">\(a \notin M\)</span> | a不属于M |
+   | <span class="arithmatex">\(M^*\)</span> | M中排除0的集合 |
+   | <span class="arithmatex">\(M^+\)</span> | M中排除0和负数的集合 |</p>
+</blockquote>
+<p><font color="red"><strong><em>集合的全体不叫集合，叫类(class)</em></strong></font></p>
+<ol>
+<li>
+<p>表示方法：
+   列举法和描述法<br>
+   | sign | name | represent |
+   | :---: | :---: | :--- |
+   | <span class="arithmatex">\(N\)</span> | 自然数集 | <span class="arithmatex">\(\{0,1,\cdots,n,\cdots\}\)</span>|
+   | <span class="arithmatex">\(Z\)</span> | 整数集 | <span class="arithmatex">\(\{x \mid x \in N\ \text{or}\ -x \in N\}\)</span> |
+   | <span class="arithmatex">\(Q\)</span> | 有理数集 | <span class="arithmatex">\(\{\frac{p}{q} \mid p \in Z,\ q \in N^2,\ p与q互质\}\)</span> |
+   | <span class="arithmatex">\(R\)</span> | 实数集 | <span class="arithmatex">\(\{x \mid x\text{为有理数或无理数}\}\)</span>|
+   | <span class="arithmatex">\((a,b)\)</span> | 开区间 | <span class="arithmatex">\(\{x \mid  a&lt;x&lt;b\}\)</span> | 
+   | <span class="arithmatex">\([a,b]\)</span> | 闭区间 | <span class="arithmatex">\(\{x \mid  a \leqslant x \leqslant b\}\)</span> |</p>
+</li>
+<li>
+<p>集合的关系与运算<br></p>
+</li>
+<li>相等：<span class="arithmatex">\(A=B \Leftrightarrow A \subset B \ \And \ A \subset B\)</span></li>
+<li>差集：<span class="arithmatex">\(A\setminus B=\{x|x \in A\ \And\ x \notin B\}\)</span></li>
+<li>余集：<span class="arithmatex">\(B^c_A = A\setminus B\)</span></li>
+<li>直积(笛卡尔积)：<span class="arithmatex">\(A \times B =\{(x,y)\mid x \in A,\ y \in B\}\)</span><br>
+<font color="blue"><em><span class="arithmatex">\(R \times R \overset{\text{记}}{=} R^2\)</span>为平面上全体点集</em></font></li>
+</ol>
+<h3 id="_4">邻域</h3>
+<blockquote>
+<p>设<span class="arithmatex">\(x_0 \in R ,\  \delta &gt; 0\)</span>,所有包含<span class="arithmatex">\(x_0\)</span>的开区间都称为<span class="arithmatex">\(x_0\)</span>的邻域</p>
+</blockquote>
+<p><span class="arithmatex">\(x_0\)</span>的<span class="arithmatex">\(\delta\)</span>邻域：<span class="arithmatex">\((x_0- \delta ,x_0 + \delta)\)</span>，记为：<span class="arithmatex">\(U(x_0,\delta )\)</span>，点<span class="arithmatex">\(x_0\)</span>称为邻域的中心，<span class="arithmatex">\(\delta\)</span>称为邻域的半径.
+<span class="arithmatex">\(x_0\)</span>的去心<span class="arithmatex">\(\delta\)</span>邻域：<span class="arithmatex">\((x_0-\delta,x_0)\cup (x_0,x_0 + \delta)\)</span>，记为：<span class="arithmatex">\(\mathring{U}(x_0,\delta)\)</span>  (<span class="arithmatex">\(\delta\)</span>均可省略)</p>
+<h3 id="_5">数集的界</h3>
+<blockquote>
+<p>设非空数集<span class="arithmatex">\(D \subset R\)</span>，若<span class="arithmatex">\(\exist M\)</span> <em>s.t.</em> 对 <span class="arithmatex">\(\forall x \in D\)</span>,有<span class="arithmatex">\(x \leqslant M\)</span> 称<span class="arithmatex">\(D\)</span>有上界<span class="arithmatex">\(M\)</span>.</p>
+</blockquote>
+<ol>
+<li>数集<span class="arithmatex">\(D\)</span>有界 <span class="arithmatex">\(\Leftrightarrow \exist M&gt;0\)</span>，<em>s.t.</em> 对 <span class="arithmatex">\(\forall x\in D\)</span>，有 <span class="arithmatex">\(|x|\leqslant M\)</span></li>
+<li>数集<span class="arithmatex">\(D\)</span>无界 $\Leftrightarrow $对 <span class="arithmatex">\(\forall M&gt;0\)</span>，总 <span class="arithmatex">\(\exist x \in D\)</span>，<em>s.t.</em><span class="arithmatex">\(|x|&gt;M\)</span></li>
+<li>数集<span class="arithmatex">\(D\)</span>有上确界<span class="arithmatex">\(\beta\)</span> <span class="arithmatex">\(\Leftrightarrow \text{①} \exist \beta \in R,\ \forall x \in D\)</span>，有 <span class="arithmatex">\(x \leqslant \beta \text{ ②}\forall \varepsilon &gt;0,\exist x_\varepsilon \in D\)</span><em>s.t.</em><span class="arithmatex">\(x_\varepsilon &gt; \beta - \varepsilon\)</span>
+   记为<span class="arithmatex">\(\beta = supD\)</span>（<font color="red"><span class="arithmatex">\(\beta\)</span>不一定可以在<span class="arithmatex">\(D\)</span>中取到</font>）
+   同理，<span class="arithmatex">\(\alpha\)</span>为<span class="arithmatex">\(D\)</span>的下确界，记为<span class="arithmatex">\(\alpha=infD\)</span></li>
+</ol>
+<h3 id="_6">映射</h3>
+<blockquote>
+<p>若存在一个法则<span class="arithmatex">\(T\)</span>，使得<span class="arithmatex">\(X\)</span>中的每一个元素<span class="arithmatex">\(x\)</span>按法则<span class="arithmatex">\(T\)</span>有唯一的元素<span class="arithmatex">\(y\)</span>与之对应</p>
+</blockquote>
+<ol>
+<li><span class="arithmatex">\(T\)</span>从<span class="arithmatex">\(X\)</span>到<span class="arithmatex">\(Y\)</span>的映射，记作<span class="arithmatex">\(T:X\rightarrow Y\)</span>.
+   元素<span class="arithmatex">\(y\)</span>称为<span class="arithmatex">\(x\)</span>在映射<span class="arithmatex">\(T\)</span>下的<strong>像</strong>，记作<span class="arithmatex">\(T(x)\)</span>.
+   元素<span class="arithmatex">\(x\)</span>称为<span class="arithmatex">\(y\)</span>在映射<span class="arithmatex">\(T\)</span>下的<strong>原像</strong>.
+   集合<span class="arithmatex">\(X\)</span>称为<span class="arithmatex">\(T\)</span>的<strong>定义域</strong>，记作<span class="arithmatex">\(D(T)\)</span>.
+   <span class="arithmatex">\(Y\)</span>的子集<span class="arithmatex">\(T(x)=\{T(x)\mid x\in X\}\)</span>称为<strong>值域</strong>，常记为<span class="arithmatex">\(R(T)\)</span>.
+   <br></li>
+<li>若<span class="arithmatex">\(T(X)=Y\)</span>，则称<span class="arithmatex">\(T\)</span>为<strong>满射</strong>.
+   若<span class="arithmatex">\(\forall x_1,\ x_2\in X, x_1\neq x_2\text{, 有}T(x_1)\ne T(x_2)\)</span>，则称<span class="arithmatex">\(T\)</span>为<strong>单射</strong>（也就是单调）.
+   若<span class="arithmatex">\(T:X\rightarrow Y\)</span>既是单射又是满射，则称<span class="arithmatex">\(T:X\rightarrow Y\)</span>是<strong>双射</strong>，也称<strong>一一对应</strong>.
+   <br></li>
+<li>若<span class="arithmatex">\(f:D\rightarrow f(D)\)</span>为单射，则有<span class="arithmatex">\(f^{-1}:f(D)\rightarrow D\)</span>，<em>s.t.</em><span class="arithmatex">\(\forall y\in f(D), f^{-1}(y)=x\)</span>其中<span class="arithmatex">\(f(x)=y\)</span>，称<span class="arithmatex">\(f^{-1}\)</span>为<span class="arithmatex">\(f\)</span>的<strong>逆映射</strong>.
+   <br></li>
+<li>设<span class="arithmatex">\(f:D\rightarrow D_1,\ g:D_1\rightarrow D_2\)</span>，若 <span class="arithmatex">\(f(D)\subset D_1\)</span>，即<span class="arithmatex">\(f(x)\)</span>的值域包含在<span class="arithmatex">\(g\)</span>的定义域中，或者<span class="arithmatex">\(f\)</span>的值域与<span class="arithmatex">\(g\)</span>的定义域交非空，即<span class="arithmatex">\(f(D)\cup D_1\ne \phi\)</span>，则定义一新映射<span class="arithmatex">\(g\circ f:D\rightarrow D_2\)</span>，称为<strong>复合映射</strong>
+<font color="blue"><em><span class="arithmatex">\(g\circ f(x) = g[f(x)]\)</span></em></font></li>
+</ol>
+<h3 id="_7">函数</h3>
+<blockquote>
+<p>设非空集合<span class="arithmatex">\(D\subseteq R\)</span>，称映射<span class="arithmatex">\(f:D\rightarrow R\)</span>为定义在<span class="arithmatex">\(D\)</span>上的函数</p>
+</blockquote>
+<ol>
+<li>图形：<span class="arithmatex">\(C=\{(x,y)\mid y=f(x),\ x\in D\}\text{，或 }C=D\times f(D)\)</span>
+   <br></li>
+<li>常用函数:<br></li>
+<li>符号函数：
+      $$
+      y=\operatorname{sign} x=
+      \begin{cases}
+      1, &amp; x&gt;0\
+      0, &amp; x=0\
+      -1, &amp; x&lt;0
+      \end{cases}
+      $$</li>
+<li>取整函数：
+      <span class="arithmatex">\(y=[x]\)</span>，当<span class="arithmatex">\(n\leqslant x&lt;n+1\)</span>时，<span class="arithmatex">\([x]=n\)</span></li>
+<li>余切函数：
+      <span class="arithmatex">\(y=\cot x=\tan (\frac{\pi}{2}-x)=\frac{1}{\tan x}\)</span>（注意：<span class="arithmatex">\(\cot x\neq \tan ^{-1}x\)</span> 后者是<span class="arithmatex">\(\tan x\)</span>的反函数）
+      <img alt="" src="../cot.png" /></li>
+<li>正割函数：
+      <span class="arithmatex">\(y=\sec x=\frac{1}{\cos x}\)</span>
+      <img alt="" src="../sec.png" /></li>
+<li>余割函数：
+      <span class="arithmatex">\(y=\csc x=\frac{1}{\sin x}\)</span>
+      <img alt="" src="../csc.png" /></li>
+<li>反正弦函数：<br>
+      对<span class="arithmatex">\(y=\sin x\)</span>，若<span class="arithmatex">\(x\in [-\frac{\pi}{2},\frac{\pi}{2}]\)</span>，则此时<span class="arithmatex">\([-\frac{\pi}{2},\frac{\pi}{2}]\)</span><span class="arithmatex">\(\xrightarrow[\text{1 - 1}]{}[-1,1]\)</span>，即<span class="arithmatex">\(y=f(x)\text{在}[-\frac{\pi}{2},\frac{\pi}{2}]\)</span>的反函数存在，记<span class="arithmatex">\(y=\arcsin x,\ x\in [-1,1],\ y\in [-\frac{\pi}{2},\frac{\pi}{2}]\)</span>.<br>
+      <img alt="" src="../arcsin.png" /></li>
+<li>反余弦函数：<br>
+      同理：对<span class="arithmatex">\(y=\cos x,\ x\in [0,\pi]\)</span>，有反函数<span class="arithmatex">\(y=\arccos x,\ x\in [-1,1],\ y\in [0,\pi]\)</span>.<br>
+      <img alt="" src="../arccos.png" /></li>
+<li>反正切函数：<br>
+      同理：对<span class="arithmatex">\(y=\tan x,\ x\in [-\frac{\pi}{2},\frac{\pi}{2}]\)</span>，有反函数<span class="arithmatex">\(y=\arctan x,\ x\in [-\infty,+\infty],\ y\in [-\frac{\pi}{2},\frac{\pi}{2}]\)</span>.<br>
+      <img alt="" src="../arctan.png" /></li>
+<li>反余切函数：<br>
+      同理：对<span class="arithmatex">\(y=\cot x,\ x\in [0,\pi]\)</span>，有反函数<span class="arithmatex">\(y=\operatorname{arccot} x,\ x\in R,\ y\in [0,\pi]\)</span>.<br>
+      <img alt="" src="../arccot.png" /></li>
+<li>双曲正弦：<br>
+      <span class="arithmatex">\(y=\frac{e^x-e^x}{2}\overset{\text{记}}{=} \sh x\)</span>，定义域是<span class="arithmatex">\(R\)</span>，值域是<span class="arithmatex">\(R\)</span>，是单调递增的奇函数.</li>
+<li>双曲余弦：<br>
+      <span class="arithmatex">\(y=\frac{e^x+e^x}{2}\overset{\text{记}}{=}\ch x\)</span>，定义域是<span class="arithmatex">\(R\)</span>，值域是<span class="arithmatex">\([1,+\infty]\)</span>，是<span class="arithmatex">\(R\)</span>上的偶函数.
+      <img alt="" src="../shandch.png" /></li>
+<li>双曲正切：<br>
+      <span class="arithmatex">\(y=\frac{\sh x}{\ch x}=\frac{e^x-e^{-x}}{e^x+e^{-x}}\overset{\text{记}}{=}\th x\)</span>，定义域是<span class="arithmatex">\(R\)</span>，值域是<span class="arithmatex">\((-1,1)\)</span>，是<span class="arithmatex">\(R\)</span>上的单调增加的奇函数.
+      <img alt="" src="../th.png" /></li>
+<li>反双曲正弦：<br>
+      推导：由<span class="arithmatex">\(y=\sh x=\frac{e^x-e^{-x}}{2}\)</span>，有<span class="arithmatex">\((e^x)^2-2y(e^x)-1=0\)</span>，故<span class="arithmatex">\(e^x=y+\sqrt{y^2+1}\)</span>（负号舍去），从而<span class="arithmatex">\(x=\ln(y+\sqrt{y^2+1})\)</span><br>
+      <span class="arithmatex">\(y=\operatorname{arsh}x=\ln(x+\sqrt{x^2+1})\)</span>，定义域是<span class="arithmatex">\(R\)</span>，值域是<span class="arithmatex">\(R\)</span>，是<span class="arithmatex">\(R\)</span>上的单调增加的奇函数.
+      <img alt="" src="../arsh.png" /></li>
+<li>反双曲余弦：<span class="arithmatex">\(y=\operatorname{arch}x=\ln(x+\sqrt{x^2-1})\)</span>，定义域是<span class="arithmatex">\([1,+\infty)\)</span>，值域是<span class="arithmatex">\([0,+\infty)\)</span>，在定义域上是增函数.
+      <img alt="" src="../arch.png" /></li>
+<li>
+<p>反双曲正切：<span class="arithmatex">\(y=\operatorname{arth}x=\frac{1}{2}\ln \frac{1+x}{1-x}\)</span>，定义域是<span class="arithmatex">\((-1,1)\)</span>，值域是<span class="arithmatex">\(R\)</span>，在定义域上是单调增加的奇函数.
+      <img alt="" src="../arth.png" /></p>
+</li>
+<li>
+<p>特性：</p>
+</li>
+<li>有界性</li>
+<li>奇偶性</li>
+<li>单调性：<br>
+      <span class="arithmatex">\(\forall x_1,\ x_2\in I,\ x_1&lt;x_2\text{ , 若 }f(x_1)&lt;f(x_2)\)</span>称<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(I\)</span>上严格单调增加.</li>
+<li>周期性：<font color="red"><strong>周期函数不一定存在最小正周期</strong></font><br>
+      <em>e.g.</em> 常量函数：<span class="arithmatex">\(f(x)=C\)</span><br>
+      &emsp;&emsp;狄利克雷函数：<span class="arithmatex">\(y=D(x)=\begin{cases}1, &amp; x\in Q\\0, &amp; x\in Q^c\end{cases}\)</span></li>
+<li>反函数<blockquote>
+<p>与映射的逆映射相对应</p>
+</blockquote>
+</li>
+</ol>
+<p><span class="arithmatex">\(y=f(x),\ x\in D\text{ 记为 }y=f^{-1}(x),\ x\in f(x)\)</span>
+   反函数和<strong>直接函数</strong>（原本的函数）<strong>单调性相同</strong>
+   <span class="arithmatex">\(y=f(x)\)</span> 与 <span class="arithmatex">\(y=f^{-1}(x)\)</span> 关于 <span class="arithmatex">\(y=x\)</span> 对称.
+   <br>
+5. 复合函数</p>
+<blockquote>
+<p>与映射的复合映射相对应</p>
+</blockquote>
+<p><span class="arithmatex">\(y=f(u),\ u\in D_1,\ u=g(x),\ x\in D\text{ 且 }g(D)\subset D_1\text{ 则 }y=f[g(x)]=f\circ g(x),\ x\in D\)</span>（<span class="arithmatex">\(u\)</span>为中间变量）</p>
+<p><em>e.g.</em> 对于 <span class="arithmatex">\(y=\arcsin u,\ u=2\sqrt{1-x^2}\)</span> 虽然值域和定义域并非包含关系，但其交集非空，仍可定义复合函数（但要注意修改定义域）
+   <br>
+6. 初等函数</p>
+<blockquote>
+<p>由常数和基本初等函数经有限次的四则运算和复合步骤构成且可由一个算式表示的函数</p>
+</blockquote>
+<p>基本初等函数包括：<br>
+   * 幂函数：<span class="arithmatex">\(y=x^\mu\)</span>（<span class="arithmatex">\(\mu\)</span>为常数）
+   * 指数函数：<span class="arithmatex">\(y=a^x\)</span>（<span class="arithmatex">\(a&gt;0,\ a\neq 1\)</span>为常数）
+   * 对数函数：<span class="arithmatex">\(y=\log_ax\)</span>（<span class="arithmatex">\(a&gt;0,\ a\neq 1\)</span>为常数）
+   * 三角函数：<span class="arithmatex">\(y=\sin x,\ y=\cos x,\ y=\tan x,\ y=\cot x,\ y=\sec x,\ y=\csc x\)</span>
+   * 反三角函数：<span class="arithmatex">\(y=\arcsin x,\ y=\arccos x,\ y=\arctan x,\ y=\operatorname{arccot} x\)</span></p>
+<h2 id="_8">数列极限</h2>
+<h3 id="_9">数列极限的概念</h3>
+<p>直观定义：设有数列<span class="arithmatex">\(\{x_n\}\)</span>，当<span class="arithmatex">\(n\)</span>无限增大时，<span class="arithmatex">\(x_n\)</span>无限接近于某一个确定常数<span class="arithmatex">\(a\)</span>，则称<span class="arithmatex">\(a\)</span>为数列<span class="arithmatex">\(\{x_n\}\)</span>的<strong>极限</strong>（或数列<span class="arithmatex">\(\{x_n\}\)</span><strong>收敛</strong>于<span class="arithmatex">\(a\)</span>），记<span class="arithmatex">\(\displaystyle\lim_{n \to \infty}x_n=a\)</span> 或 <span class="arithmatex">\(x_n\to a\ (n\to \infty)\)</span>.</p>
+<p>数学定义：设有数列<span class="arithmatex">\(\{x_n\}\)</span>，若<span class="arithmatex">\(\forall \varepsilon&gt;0,\ \exist N\)</span> 当 <span class="arithmatex">\(n&gt;N\)</span>时，<span class="arithmatex">\(|x_n-a|&lt;\varepsilon\)</span>，则称<span class="arithmatex">\(a\)</span>为数列<span class="arithmatex">\(\{x_n\}\)</span>的极限.</p>
+<blockquote>
+<p>例1. 已知<span class="arithmatex">\(x_n=\frac{n+(-1)^n}{n}\)</span>，证明<span class="arithmatex">\(\{x_n\}\)</span>极限为<span class="arithmatex">\(1\)</span>.<br>
+&emsp;&emsp;&emsp;&emsp;考虑<span class="arithmatex">\(|x_n-1|=|\frac{n+(-1)^n}{n}-1|=|\frac{(-1)^n}{n}|=|\frac{1}{n}|\overset{\text{令}}{&lt;}\varepsilon \Rightarrow n&gt;\frac{1}{\varepsilon}\)</span><br>
+&emsp;&emsp;证明：对<span class="arithmatex">\(\forall \varepsilon &gt;0\)</span>，取<span class="arithmatex">\(N=[\frac{1}{\varepsilon}]+1\)</span>，当<span class="arithmatex">\(n&gt;N\)</span>时，有<span class="arithmatex">\(|x_n-1|&lt;\varepsilon\)</span>，所以<span class="arithmatex">\(\{x_n\}\)</span>极限为<span class="arithmatex">\(1\)</span>.</p>
+<p>例2.已知<span class="arithmatex">\(x_n=\frac{(-1)^n}{(n+1)^2}\)</span>，证明<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}x_n=0\)</span><br>
+&emsp;&emsp;&emsp;&emsp;考虑令<span class="arithmatex">\(|x_n-0|=\frac{1}{(n+1)^2}&lt;\varepsilon\)</span>解出来太繁琐，尝试放缩. <span class="arithmatex">\(|x_n-1|=\frac{1}{(n+1)^2}&lt;\frac{1}{n+1}\overset{\text{令}}{&lt;}\varepsilon \Rightarrow n&gt;\frac{1}{\varepsilon}-1\)</span><br>
+&emsp;&emsp;证明：对<span class="arithmatex">\(\forall \varepsilon &gt;0\)</span>，取<span class="arithmatex">\(N=[\frac{1}{\varepsilon}-1]+1\)</span>，当<span class="arithmatex">\(n&gt;N\)</span>时，有<span class="arithmatex">\(|x_n-0|&lt;\varepsilon\)</span>，所以<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}x_n=0\)</span></p>
+</blockquote>
+<h3 id="_10">数列极限的性质</h3>
+<ol>
+<li>收敛数列的极限唯一.</li>
+<li>收敛数列一定有界，若数列无界则其一定发散.
+   <font color="red">有界数列未必收敛.&emsp;&emsp;<em>e.g.</em><span class="arithmatex">\(\{x_n=(-1)^n\}\)</span>.</font></li>
+<li>收敛数列具有保号性.<ul>
+<li>若<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}x_n=a\)</span>，且<span class="arithmatex">\(a&gt;0\)</span>(<span class="arithmatex">\(&lt;0\)</span>)，则<span class="arithmatex">\(\exist N\in N^+\)</span>，当<span class="arithmatex">\(n&gt;N\)</span>，有<span class="arithmatex">\(x_n&gt;\frac{a}{2}&gt;0\)</span>.</li>
+<li>若<span class="arithmatex">\(\{x_n\}\)</span>从某项起，<span class="arithmatex">\(x_n\leqslant 0\)</span>(<span class="arithmatex">\(\geqslant 0\)</span>)，且<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}x_n=a\)</span>，则<span class="arithmatex">\(a\leqslant 0\)</span>(<span class="arithmatex">\(\geqslant 0\)</span>)</li>
+</ul>
+</li>
+<li>（海涅归结原理）收敛数列的任一子数列收敛于同一极限.</li>
+</ol>
+<h3 id="_11">数列极限的四则运算</h3>
+<p>若<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}x_n=A\)</span>，<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}y_n=B\)</span>，则有
+1. <span class="arithmatex">\(\displaystyle \lim_{n\to \infty}(x_n\pm y_n)=A\pm B=\displaystyle \lim_{n\to \infty}x_n\pm \displaystyle \lim_{n\to \infty}y_n\)</span>
+2. <span class="arithmatex">\(\displaystyle \lim_{n\to \infty}x_ny_n=AB=\displaystyle \lim_{n\to \infty}x_n\cdot \displaystyle \lim_{n\to \infty}y_n\)</span>
+3. 当<span class="arithmatex">\(y_n\ne 0\)</span>且<span class="arithmatex">\(B\ne 0\)</span>，<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}\frac{x_n}{y_n}=\frac{A}{B}=\frac{\displaystyle \lim_{n\to \infty}x_n}{\displaystyle \lim_{n\to \infty}y_n}\)</span></p>
+<h3 id="_12">数列极限存在的判定定理</h3>
+<ol>
+<li>夹逼准则：
+      $$
+      \begin{rcases}
+      y_n\leqslant x_n\leqslant z_n(n=1,2,\cdots)\
+      \displaystyle \lim_{n\to \infty}y_n=\displaystyle \lim_{n\to \infty}z_n=a
+      \end{rcases}\Rightarrow \displaystyle \lim_{n\to \infty}x_n=a
+      $$</li>
+<li>单调有界数列必有极限.</li>
+<li>柯西收敛准则：
+      数列<span class="arithmatex">\(\{x_n\}\)</span>收敛$\Leftrightarrow \forall \varepsilon &gt;0,\ \exist N_0\in Z^+,\ m,n&gt;N_0,\ |x_m-x_n|&lt;\varepsilon $
+      数列<span class="arithmatex">\(\{x_n\}\)</span>是柯西数列，则<span class="arithmatex">\(\forall \varepsilon &gt;0,\ \exist N_0\in Z^+,\ n&gt;N_0,\ |x_{n+p}-x_n|&lt;\varepsilon\)</span>对所有<span class="arithmatex">\(p\in Z^+\)</span>成立.</li>
+</ol>
+<p><font color="red">重要极限：<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}\sqrt[n]{n}=1\)</span>，<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}\sqrt[n]{a}=1\)</span>，<span class="arithmatex">\(\displaystyle \lim_{n\to \infty}(1+\frac{1}{n})^n=\mathrm{e}\)</span></font></p>
+<h2 id="_13">函数极限</h2>
+<h3 id="_14">自变量趋于无穷大时函数的极限</h3>
+<ol>
+<li><span class="arithmatex">\(\displaystyle \lim_{x\to \infty}f(x)=A \Leftrightarrow \forall \varepsilon &gt;0,\ \exist X&gt;0\)</span>，当 <span class="arithmatex">\(|x|&gt;X\)</span> 时 <span class="arithmatex">\(|f(x)-A|&lt;\varepsilon\)</span></li>
+<li><span class="arithmatex">\(\displaystyle \lim_{x\to +\infty}f(x)=A \Leftrightarrow \forall \varepsilon &gt;0,\ \exist X&gt;0\)</span>，当 <span class="arithmatex">\(x&gt;X\)</span> 时 <span class="arithmatex">\(|f(x)-A|&lt;\varepsilon\)</span></li>
+<li><span class="arithmatex">\(\displaystyle \lim_{x\to -\infty}f(x)=A \Leftrightarrow \forall \varepsilon &gt;0,\ \exist X&gt;0\)</span>，当 <span class="arithmatex">\(x&lt;-X\)</span> 时 <span class="arithmatex">\(|f(x)-A|&lt;\varepsilon\)</span></li>
+</ol>
+<p><span class="arithmatex">\(\displaystyle \lim_{x\to \infty}f(x)=A\Leftrightarrow \displaystyle \lim_{x\to -\infty}f(x)=A\)</span> 且 <span class="arithmatex">\(\displaystyle \lim_{x\to +\infty}f(x)=A\)</span></p>
+<h3 id="_15">自变量趋于有限值时函数的极限</h3>
+<p>直观定义：设 <span class="arithmatex">\(y=f(x)\)</span> 在 <span class="arithmatex">\(x_0\)</span> 的某一去心邻域内有定义，如果当  <span class="arithmatex">\(x\)</span> 无限逼近到某一 <span class="arithmatex">\(x_0\)</span> 时，相应的 <span class="arithmatex">\(f(x)\)</span> 也无限逼近某个确定常数 <span class="arithmatex">\(A\)</span> ，称为 <span class="arithmatex">\(f(x)\)</span> 当<span class="arithmatex">\(x\to x_0\)</span> 时的极限，记为 <span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)=A\)</span>.</p>
+<p>数学定义：对 <span class="arithmatex">\(\forall \varepsilon &gt;0,\ \exist \delta&gt;0\)</span> 当 <span class="arithmatex">\(0&lt;|x-x_0|&lt;\delta\)</span> 时，有 <span class="arithmatex">\(|f(x)-A|&lt;\varepsilon\)</span> 成立，此时称<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}=A\)</span></p>
+<p><span class="arithmatex">\(\displaystyle \lim_{x\to x_0}=A\Leftrightarrow \forall \varepsilon &gt;0,\ \exist \delta&gt;0\)</span>，当 <span class="arithmatex">\(x\in \mathring{U}(x_0,\delta)\)</span> 时，有 <span class="arithmatex">\(|f(x)-A|&lt;\varepsilon\)</span>.</p>
+<blockquote>
+<p>例.用定义证明 <span class="arithmatex">\(\displaystyle \lim_{x\to 1}\frac{x^2-1}{2x^2-x-1}=\frac{2}{3}\)</span>
+&emsp;&emsp;&emsp;&emsp;考虑：<span class="arithmatex">\(|f(x)-\frac{2}{3}|=|\frac{(x-1)(x+1)}{(x-1)(2x+1)}-\frac{2}{3}|=|\frac{1-x}{3(2x+1)}|\overset{\text{令}}{&lt;}\varepsilon\)</span>（太麻烦）
+&emsp;&emsp;方法：<strong>先限制后放大</strong>
+&emsp;&emsp;&emsp;&emsp;令 <span class="arithmatex">\(|x-1|&lt;\frac{1}{2}\Rightarrow \frac{1}{2}&lt;x&lt;\frac{3}{2}\)</span>（且<span class="arithmatex">\(x\ne 1\)</span>），在此限制条件下：$\frac{|x-1|}{3(2x+1)}&lt;\frac{|x-1|}{6}\overset{令}{&lt;}\varepsilon \Rightarrow|x-1|&lt;6\varepsilon $
+&emsp;&emsp;证明：<span class="arithmatex">\(\forall \varepsilon &gt;0,\ \exist \delta=min\{6\varepsilon,\ \frac{1}{2}\}\)</span>，当 <span class="arithmatex">\(|x-1|&lt;\delta\)</span> 时，有 <span class="arithmatex">\(|f(x)-\frac{2}{3}|&lt;\varepsilon\)</span> 成立</p>
+</blockquote>
+<h3 id="_16">单侧极限</h3>
+<blockquote>
+<p>若 <span class="arithmatex">\(\forall \varepsilon &gt;0,\ \exist \delta &gt;0\)</span>，<em>s.t.</em> 当        <span class="arithmatex">\(x_0&lt;x&lt;x_0+\delta\)</span> 时有 <span class="arithmatex">\(|f(x)-A|&lt;\varepsilon\)</span> ，则称数<span class="arithmatex">\(A\)</span>为函数<span class="arithmatex">\(f\)</span>当<span class="arithmatex">\(x\)</span>趋于<span class="arithmatex">\(x_0\)</span>时的<strong>右极限</strong>，记作 <strong><span class="arithmatex">\(\displaystyle \lim_{x\to x_0^+}f(x)=A\)</span></strong> ，或 <span class="arithmatex">\(\displaystyle \lim_{x\to x_0^{+0}}f(x)=A\)</span>，或 <span class="arithmatex">\(f(x)\to A(x\to x_0^+)\)</span> 或 <span class="arithmatex">\(f(x_0+0)=A\)</span></p>
+</blockquote>
+<p><span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)=A\Leftrightarrow \displaystyle \lim_{x\to x_0^+}f(x)=\displaystyle \lim_{x\to x_0^-}f(x)=A\)</span></p>
+<h2 id="_17">函数极限的性质与运算法则</h2>
+<h3 id="_18">性质</h3>
+<ul>
+<li>极限唯一性：如果<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)\)</span>极限存在，则极限唯一.</li>
+<li>函数局部有界性：如果<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)\)</span>极限存在，则<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>的某一去心邻域内有界.</li>
+<li>函数局部保号性:</li>
+<li><span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)=A&gt;0(A&lt;0)\)</span>，则存在<span class="arithmatex">\(x_0\)</span>的某一去心邻域<em>s.t.</em> 当 <span class="arithmatex">\(x\in \mathring{U}(x_0,\delta)\)</span> 时，<span class="arithmatex">\(f(x)&gt;0(f(x)&lt;0)\)</span></li>
+<li><span class="arithmatex">\(f(x)\geqslant 0(f(x)\leqslant 0)\)</span>，且<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)=A\Rightarrow A\geqslant 0(A\leqslant 0)\)</span></li>
+</ul>
+<h3 id="_19">运算法则</h3>
+<ul>
+<li>设<span class="arithmatex">\(\lim f(x)=A,\ \lim g(x)=B\)</span></li>
+<li><span class="arithmatex">\(\lim [f(x)\pm g(x)]=\lim f(x)\pm \lim g(x)=A\pm B\)</span><ul>
+<li><span class="arithmatex">\(f(x)\geqslant g(x)\Rightarrow A\geqslant B\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(\lim [f(x)g(x)]=\lim f(x)\cdot \lim g(x)=AB\)</span></li>
+<li>若 <span class="arithmatex">\(\lim g(x)=B\ne 0\)</span>，则 <span class="arithmatex">\(\lim \frac{f(x)}{g(x)}=\frac{\lim f(x)}{\lim g(x)}=\frac{A}{B}\)</span></li>
+<li><span class="arithmatex">\(\lim [c\cdot f(x)]=c\cdot \lim f(x)\)</span></li>
+<li><span class="arithmatex">\(\lim [f(x)]^n=[\lim f(x)]^n\)</span></li>
+<li><span class="arithmatex">\(f(x)=a_0x^n+a_1x^{n-1}+\cdots a_{n-1}x+a_n\)</span>，则<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)=a_0x_0^n+a_1x_0^{n-1}+\cdots a_{n-1}x_0+a_n=f(x_0)\)</span></li>
+<li><span class="arithmatex">\(Q(x_0)\ne 0\)</span>，则<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}\frac{P(x)}{Q(x)}=\frac{P(x_0)}{Q(x_0)}\)</span></li>
+<li>设：</li>
+<li><span class="arithmatex">\(\displaystyle \lim_{t\to t_0}\varphi(t)=x_0\)</span></li>
+<li>在<span class="arithmatex">\(t_0\)</span>的某一去心邻域内<span class="arithmatex">\(\varphi(t)\ne x_0\)</span></li>
+<li><span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)=A\)</span></li>
+</ul>
+<p>则 <span class="arithmatex">\(\displaystyle \lim_{t\to t_0}f[\varphi(t)]\xlongequal{x=\varphi(t)}\displaystyle \lim_{x\to x_0}f(x)=A\)</span></p>
+<h2 id="_20">函数极限存在条件</h2>
+<h3 id="_21">归结原理</h3>
+<blockquote>
+<p><span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)=A\Leftrightarrow \forall \{x_n\}:x_n\ne x_0,\ f(x)\)</span> 有定义 <span class="arithmatex">\(x_n\to x_0(n\to \infty)\)</span>，有 <span class="arithmatex">\(\displaystyle \lim_{n\to \infty}f(x_n)=A\)</span></p>
+</blockquote>
+<p>用于判断极限不存在：
+1. 找<span class="arithmatex">\(\{x_n\}:x_n\ne x_0\)</span> 且 <span class="arithmatex">\(\displaystyle \lim_{n\to \infty}x_n=x_0\)</span> <em>s.t.</em> <span class="arithmatex">\(\displaystyle \lim_{n\to \infty}f(x_n)\)</span> 不存在.
+2. 找两个以<span class="arithmatex">\(x_0\)</span>为极限的数列<span class="arithmatex">\(\{x_n'\},\{x_n''\}\)</span> <em>s.t.</em> <span class="arithmatex">\(\displaystyle \lim_{n\to \infty}f(x_n')\)</span> 和 <span class="arithmatex">\(\displaystyle \lim_{n\to \infty}f(x_n'')\)</span> 均存在但不等.</p>
+<blockquote>
+<p>例.证明 <span class="arithmatex">\(\displaystyle \lim_{x\to 0}\sin \frac{1}{x}\)</span> 不存在.
+&emsp;&emsp;证：取两趋于<span class="arithmatex">\(0\)</span>的数列：
+&emsp;&emsp;&emsp;&emsp;<span class="arithmatex">\(x_n=\frac{1}{2n\pi},\ x_n'=\frac{1}{2n\pi +\frac{\pi}{2}}(n=1,2,\cdots)\)</span>
+&emsp;&emsp;&emsp;&emsp;有 <span class="arithmatex">\(\displaystyle \lim_{n\to 0}\sin \frac{1}{x_n}=\displaystyle \lim_{n\to 0}\sin 2n\pi=0\)</span>，<span class="arithmatex">\(\displaystyle \lim_{n\to 0}\sin \frac{1}{x_n'}=\displaystyle \lim_{n\to 0}\sin (2n\pi+\frac{\pi}{2})=1\)</span>
+&emsp;&emsp;&emsp;&emsp;则 <span class="arithmatex">\(\displaystyle \lim_{n\to 0}\sin \frac{1}{x_n}\ne \displaystyle \lim_{n\to 0}\sin \frac{1}{x_n}\)</span>，由归结原理，<span class="arithmatex">\(\displaystyle \lim_{x\to 0}\sin \frac{1}{x}\)</span> 不存在.</p>
+</blockquote>
+<h3 id="_22">夹逼准则</h3>
+<p>当 <span class="arithmatex">\(x\in \mathring{U}(x_0,\delta)\)</span> 时，<span class="arithmatex">\(g(x)\leqslant f(x)\leqslant h(x)\)</span> 且 <span class="arithmatex">\(\displaystyle \lim_{x\to x_0}g(x)=\displaystyle \lim_{x\to x_0}h(x)=A\Rightarrow \displaystyle \lim_{x\to x_0}f(x)=A\)</span></p>
+<h3 id="_23">重要极限</h3>
+<ul>
+<li><span class="arithmatex">\(\displaystyle \lim_{x\to 0}\frac{\sin x}{x}=1\)</span>
+   <em>Remark:</em> <span class="arithmatex">\(\displaystyle \lim_{\varphi(x)\to 0}\frac{\sin \varphi(x)}{\varphi(x)}=1\)</span></li>
+<li><span class="arithmatex">\(\displaystyle \lim_{x\to \infty}(1+\frac{1}{x})^x=\text{e}\)</span> <em>also.</em> <span class="arithmatex">\(\displaystyle \lim_{x\to \infty}(1+x)^{\frac{1}{x}}=\text{e}\)</span>
+   <em>Remark:</em> <span class="arithmatex">\(\displaystyle \lim_{\varphi(x)\to \infty}(1+\frac{1}{\varphi(x)})^{\varphi(x)}=\text{e}\)</span></li>
+</ul>
+<h2 id="_24">无穷小与无穷大</h2>
+<h3 id="_25">无穷小</h3>
+<blockquote>
+<p>若 <span class="arithmatex">\(\underset{(x\to \infty)}{x\to x_0}\)</span> 时，函数 <span class="arithmatex">\(f(x)\to 0\)</span>，则称函数 <span class="arithmatex">\(f(x)\)</span> 为 <span class="arithmatex">\(\underset{x\to \infty}{x\to x_0}\)</span> 时的<strong>无穷小量</strong>，简称<strong>无穷小</strong>.
+&emsp;&emsp;<em>e.g.</em> <span class="arithmatex">\(\displaystyle \lim_{x\to 1}(x-1)=0\)</span>，则函数 <span class="arithmatex">\(f(x)=x-1\)</span> 为当<span class="arithmatex">\(x\to 1\)</span>时的无穷小.</p>
+</blockquote>
+<p><font color="blue">任一不为零的常数都不是无穷小.即<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}C=0\Rightarrow C=0\)</span></font></p>
+<ul>
+<li><span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)=A\Leftrightarrow f(x)=A+\alpha\)</span>，其中<span class="arithmatex">\(\alpha\)</span>为<span class="arithmatex">\(x\to x_0\)</span>时的无穷小</li>
+<li>同一自变量的变化过程下的<font color="blue">有限个</font>无穷小的和仍为无穷小.
+   <em>e.g.</em> <span class="arithmatex">\(\displaystyle \lim_{x\to x_0}\alpha=0,\displaystyle \lim_{x\to x_0}\beta=0\)</span>，则 <span class="arithmatex">\(\displaystyle \lim_{x\to x_0}\alpha+\beta=0\)</span></li>
+<li>有界函数与无穷小乘积为无穷小</li>
+<li>有限个无穷小乘积为无穷小</li>
+<li>常数乘无穷小为无穷小</li>
+</ul>
+<h3 id="_26">无穷大</h3>
+<blockquote>
+<p>若 <span class="arithmatex">\(\forall M&gt;0,\ \underset{(X&gt;0)}{\exist \delta &gt;0}\)</span>，当<span class="arithmatex">\(\underset{(|x|&gt;X)}{0&lt;|x-x_0|&lt;\delta}\)</span> 时，有 <span class="arithmatex">\(|f(x)|&gt;M\)</span> 称函数<span class="arithmatex">\(f(x)\)</span>是 <span class="arithmatex">\(\underset{(x\to \infty)}{x\to x_0}\)</span> 时的<strong>无穷大量</strong>，简称<strong>无穷大</strong>.</p>
+</blockquote>
+<p>若 <span class="arithmatex">\(f(x)&gt;M\Rightarrow \displaystyle \lim_{\underset{(x\to \infty)}{x\to x_0}}f(x)=+\infty\)</span>
+若 <span class="arithmatex">\(f(x)&lt;-M\Rightarrow \displaystyle \lim_{\underset{(x\to \infty)}{x\to x_0}}f(x)=-\infty\)</span></p>
+<p><font color="red"><em>remark:</em> 无穷大不是数，所以 <span class="arithmatex">\(\lim f(x)=\infty\)</span> 意为<span class="arithmatex">\(f(x)\)</span>的极限不存在.
+&emsp;&emsp; &emsp; 函数为无穷大，必定无界，反之不真.</font></p>
+<blockquote>
+<p>求证：$\displaystyle \lim_{x\to 1}\frac{1}{x-1}=\infty $
+&emsp;&emsp;证：<span class="arithmatex">\(\forall M&gt;0\)</span>，<em>s.t.</em> <span class="arithmatex">\(|\frac{1}{x-1}|&gt;M\)</span>，即 <span class="arithmatex">\(|x-1|&lt;\frac{1}{M}\)</span>
+&emsp;&emsp;&emsp;&emsp;只要取 <span class="arithmatex">\(\delta =\frac{1}{M}\)</span>，当 $0&lt;|x-1|&lt;\delta $，有 <span class="arithmatex">\(\frac{1}{|x-1|}&gt;M\)</span>，则 $\displaystyle \lim_{x\to 1}\frac{1}{x-1}=\infty $</p>
+</blockquote>
+<p><em>Remark：</em> 若 $\displaystyle \lim_{x\to x_0}f(x)=\infty $，则 <span class="arithmatex">\(l:x=x_0\)</span> 为 <span class="arithmatex">\(y=f(x)\)</span> 的<strong>铅垂渐近线</strong>.</p>
+<p>在自变量的同一变化中，若<span class="arithmatex">\(f(x)\)</span>无穷大，则<span class="arithmatex">\(\frac{1}{f(x)}\)</span>无穷小;若<span class="arithmatex">\(f(x)\)</span>无穷小且<span class="arithmatex">\(f(x)\ne 0\)</span>，则<span class="arithmatex">\(\frac{1}{f(x)}\)</span>无穷大.</p>
+<h3 id="_27">无穷小的比较</h3>
+<ol>
+<li><em>def.</em> 无穷小的阶
+   设<span class="arithmatex">\(\alpha,\beta\)</span>为自变量同一变化中的无穷小，若：</li>
+<li><span class="arithmatex">\(\displaystyle \lim \frac{\beta}{\alpha}=0\)</span>，称<span class="arithmatex">\(\beta\)</span>是<span class="arithmatex">\(\alpha\)</span>的<strong>高阶无穷小</strong>，记<span class="arithmatex">\(\beta=o(\alpha)\)</span> 
+   <span class="arithmatex">\(\\[2pt]\)</span></li>
+<li><span class="arithmatex">\(\displaystyle \lim \frac{\beta}{\alpha}=\infty\)</span>，称<span class="arithmatex">\(\beta\)</span>是<span class="arithmatex">\(\alpha\)</span>的<strong>低阶的无穷小</strong> 
+   <span class="arithmatex">\(\\[2pt]\)</span></li>
+<li><span class="arithmatex">\(\displaystyle \lim \frac{\beta}{\alpha}=C\ne 0\)</span>，称<span class="arithmatex">\(\beta\)</span>是<span class="arithmatex">\(\alpha\)</span>的<strong>同阶无穷小</strong>，记<span class="arithmatex">\(\beta=O(\alpha)\)</span>
+   <span class="arithmatex">\(\\[2pt]\)</span></li>
+<li><span class="arithmatex">\(\displaystyle \lim \frac{\beta}{\alpha ^k}=C\ne 0\)</span>，称<span class="arithmatex">\(\beta\)</span>是<span class="arithmatex">\(\alpha\)</span>的 <strong><span class="arithmatex">\(k\)</span>阶无穷小</strong>
+   <span class="arithmatex">\(\\[2pt]\)</span></li>
+<li><span class="arithmatex">\(\displaystyle \lim \frac{\beta}{\alpha}=1\)</span>，称<span class="arithmatex">\(\beta\)</span>与<span class="arithmatex">\(\alpha\)</span>是<strong>等阶无穷小</strong>，记<span class="arithmatex">\(\beta \sim \alpha\)</span></li>
+<li><em>thm.</em>：<span class="arithmatex">\(\alpha \sim \beta \Leftrightarrow \beta = \alpha + o(\alpha)\)</span></li>
+<li><em>thm.</em>：设 <span class="arithmatex">\(\alpha \sim \alpha',\beta \sim \beta'\)</span>，且<span class="arithmatex">\(\lim \frac{\beta'}{\beta}\)</span>存在，则 <span class="arithmatex">\(\lim \frac{\beta}{\alpha}=\lim \frac{\beta'}{\alpha'}\)</span>
+   <font color="red">加减不可用无穷小替换，乘除可以</font><br>
+   <em>e.g.</em> <span class="arithmatex">\(\displaystyle \lim_{x\to 0}\frac{\tan 2x}{\sin 5x}=\displaystyle \lim_{x\to 0}\frac{2x}{5x}=\frac{2}{5}\)</span><br>
+   <em>e.g.</em> <span class="arithmatex">\(\displaystyle \lim_{x\to 0}\frac{\tan 2x-\sin x}{\sqrt{1+x}-1}\ne \displaystyle \lim_{x\to 0}\frac{2x-x}{\frac{1}{2}x}\)</span><br>
+   &emsp;&emsp;正解：<span class="arithmatex">\(=\displaystyle \lim_{x\to 0}\frac{x+o(2x)-o(x)}{\frac{1}{2}x}=\displaystyle \lim_{x\to 0}(\frac{x}{\frac{1}{2}x}+4\frac{o(2x)}{2x}-2\frac{o(x)}{x})=2+0-0=2\)</span></li>
+<li>常见等价无穷小（当<span class="arithmatex">\(x\to 0\)</span>）：
+   <span class="arithmatex">\(\sin x\sim x,\)</span>&emsp;&emsp;<span class="arithmatex">\(\tan x\sim x,\)</span>&emsp;&emsp;<span class="arithmatex">\(\arcsin x\sim x,\)</span>&emsp;&emsp;<span class="arithmatex">\(\arctan x\sim x,\)</span>
+   <span class="arithmatex">\(1-\cos x\sim \frac{1}{2}x^2,\)</span>&emsp;&emsp;<span class="arithmatex">\(\ln(1+x)\sim x,\)</span>&emsp;&emsp;<span class="arithmatex">\(e^x-1\sim x,\)</span>&emsp;&emsp;<span class="arithmatex">\((1+x)^\alpha-1\sim \alpha x,\)</span>
+   <em>Remark：</em> 均可推广到<span class="arithmatex">\(\varphi(x)\)</span>.</li>
+</ol>
+<h2 id="_28">函数的连续性与间断点</h2>
+<h3 id="_29">函数的连续性</h3>
+<p>函数<strong>连续</strong>的三种定义： 
+   1. 若满足：
+      1. <span class="arithmatex">\(y=f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>点及近旁有定义.
+      2. <span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)\)</span>存在.
+      3. <span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)=f(x_0)\)</span>.
+      则称<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>处连续.
+   2. <span class="arithmatex">\(\forall \varepsilon &gt;0,\ \exist \delta &gt;0\)</span>，当 <span class="arithmatex">\(|x-x_0|&lt;\delta\)</span> 时，<span class="arithmatex">\(|f(x)-f(x_0)|&lt;\varepsilon\)</span>，则称<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>点连续.
+   3. 设<span class="arithmatex">\(y=f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>的某一邻域<span class="arithmatex">\(U(x_0)\)</span>有定义，<span class="arithmatex">\(\Delta x=x-x_0, \Delta x\)</span>为函数在<span class="arithmatex">\(x_0\)</span>附近的自变量增量，<span class="arithmatex">\(\Delta x=\begin{cases}
+      &lt;0, &amp; x&lt; x_0\\
+      =0, &amp; x= x_0\\&gt;0, &amp; x&gt; x_0
+   \end{cases}\)</span>，<span class="arithmatex">\(\Delta y|_{x_0}\)</span>称为<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>处的函数增量，对 <span class="arithmatex">\(\Delta y|_{x_0}=f(x)-f(x_0)=f(x_0+\Delta x)-f(x_0)\)</span>，若 <span class="arithmatex">\(\displaystyle \lim_{\Delta x\to 0}\Delta y=0\)</span>，则称<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>点连续.</p>
+<p>若<span class="arithmatex">\(f(x)\)</span>在某区间上每一点都连续，则称它在该区间上连续或为该区间上的<strong>连续函数</strong>，记作 <strong><span class="arithmatex">\(C[a,b]\)</span></strong>.</p>
+<p>函数<span class="arithmatex">\(f(x)\)</span>在点<span class="arithmatex">\(x_0\)</span>连续<span class="arithmatex">\(\Leftrightarrow \displaystyle \lim_{x\to x_0}f(x)=f(x_0)\Leftrightarrow \displaystyle \lim_{\Delta x\to 0}f(x_0+\Delta x)=f(x_0)\Leftrightarrow \displaystyle \lim_{\Delta x\to}\Delta y=0\Leftrightarrow f(x_0^-)=f(x_0)=f(x_0^+)\Leftrightarrow \forall \varepsilon &gt;0,\ \exist \delta &gt;0\)</span>，当<span class="arithmatex">\(|x-x_0|=|\Delta x|&lt;\delta\)</span>，有<span class="arithmatex">\(|f(x)-f(x_0)|=|\Delta y|&lt;\varepsilon\)</span></p>
+<p><span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\([a,b]\)</span>上连续<span class="arithmatex">\(\Leftrightarrow \forall x\in (a,b),\ f(x)\)</span>在<span class="arithmatex">\(x\)</span>点连续，且<span class="arithmatex">\(f(x)\)</span>在左端点<span class="arithmatex">\(a\)</span>右连续，在右端点<span class="arithmatex">\(b\)</span>左连续.</p>
+<h3 id="_30">间断点及其分类</h3>
+<blockquote>
+<p>设<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>的某去心邻域内有定义，若满足<em>之一</em>：
+  1. <span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>无定义.
+  2. <span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>有定义，但<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)\)</span>不存在.
+  3. <span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(x_0\)</span>有定义，且<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)\)</span>存在，但<span class="arithmatex">\(\displaystyle \lim_{x\to x_0}f(x)\ne f(x_0)\)</span>.
+这样的点叫间断点.</p>
+</blockquote>
+<p><em>Classification:</em>
+* <strong>第一类间断点</strong>：<span class="arithmatex">\(f(x_0^-),f(x_0^+)\)</span>均存在
+  * $f(x_0^-)=f(x_0^+)\Rightarrow $ <strong>可去间断点</strong>
+  * $f(x_0^-)\ne f(x_0^+)\Rightarrow $ <strong>跳跃间断点</strong>
+* <strong>第二类间断点</strong>：<span class="arithmatex">\(f(x_0^-),f(x_0^+)\)</span>至少一个不存在
+  * 其中有一个为 $\infty \Rightarrow $ <strong>无穷间断点</strong>
+  * 其中有一个为振荡 $\Rightarrow $ <strong>振荡间断点</strong></p>
+<h3 id="_31">连续函数性质</h3>
+<p><em>Thm.:</em>
+1. 在某点连续的<font color="blue">有限个</font>函数经<font color="blue">有限次</font>和，差，积，商(<font color="blue">分母不为零</font>)运算，结果仍是一个在该点连续的函数.
+2. 连续单调递增(递减)函数的反函数也连续单调递增(递减).
+3. 连续函数的复合函数是连续的.
+4. 若<span class="arithmatex">\(f\)</span>在点<span class="arithmatex">\(x_0\)</span>连续，则<span class="arithmatex">\(f\)</span>在点<span class="arithmatex">\(x_0\)</span>的某邻域<span class="arithmatex">\(U(x_0)\)</span>有界.
+5. 若<span class="arithmatex">\(f\)</span>在点<span class="arithmatex">\(x_0\)</span>连续，且<span class="arithmatex">\(f(x_0)&gt;0(&lt;0)\)</span>，则<span class="arithmatex">\(\forall r \in (0,f(x_0))(r \in (f(x_0),0)),\ \exist u(x_0)\)</span>，<em>s.t.</em> <span class="arithmatex">\(\forall x\in U(x_0)\)</span>，有<span class="arithmatex">\(f(x)&gt;r&gt;0(f(x)&lt;r&lt;0)\)</span>.
+6. <font color="blue">一切初等函数在其定义域内都是连续的.</font></p>
+<p><font color='red'>$<span class="arithmatex">\(\varphi(x)^{\psi(x)}=e^{\ln \varphi(x)^{\psi(x)}}=e^{\psi(x)\ln \varphi(x)}\)</span>$</font></p>
+<blockquote>
+<p><em>e.g.</em> 求 <span class="arithmatex">\(\displaystyle \lim_{x\to 0}(1+2x)^{\frac{3}{\sin x}}\)</span>.
+解：原式<span class="arithmatex">\(=\displaystyle \lim_{x\to 0}e^{\frac{3}{\sin x}\ln(1+2x)}=\displaystyle \lim_{x\to 0}e^{\frac{3}{x}\cdot 2x}=e^6\)</span></p>
+</blockquote>
+<h2 id="_32">闭区间上连续函数的性质</h2>
+<p><em>Thm:</em>
+1. <strong>最值定理</strong>：在<font color="blue">闭区间</font>上连续的函数在该区间上一定有最大值和最小值.
+   即：设 <span class="arithmatex">\(f(x)\in C[a,b]\)</span>，则 <span class="arithmatex">\(\exist \xi_1,\xi_2\in [a,b]\)</span>，<em>s.t.</em> <span class="arithmatex">\(f(\xi_1)=\displaystyle \min_{a\leqslant x\leqslant b}f(x)\)</span>，<span class="arithmatex">\(f(\xi_2)=\displaystyle \max_{a\leqslant x\leqslant b}f(x)\)</span>
+   * 在闭区间上连续的函数在该区间上有界.
+2. <strong>零点定理</strong>：<span class="arithmatex">\(f(x)\in C[a,b]\)</span>，且 $f(a)f(b)&lt;0\Rightarrow <span class="arithmatex">\(至少有一点\)</span>\xi\in(a,b)$，<em>s.t.</em> <span class="arithmatex">\(f(\xi)=0\)</span>
+3. <strong>介值定理</strong>：设 <span class="arithmatex">\(f(x)\in C[a,b]\)</span>，且<span class="arithmatex">\(f(a)=A,f(b)=B,A\ne B\)</span>，则对<span class="arithmatex">\(A\)</span>与<span class="arithmatex">\(B\)</span>之间的任一数<span class="arithmatex">\(C\)</span>，至少有一点<span class="arithmatex">\(\xi\in(a,b)\)</span>，<em>s.t.</em> <span class="arithmatex">\(f(\xi)=C\)</span>.
+   * 在闭区间上的连续函数必取得介于最小值与最大值之间的任何值.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.indexes", "navigation.top", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
