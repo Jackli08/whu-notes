@@ -1,0 +1,9 @@
+# Python 虚拟环境（123MB / 一万八千多个文件，绝对不要上传）
+.venv/
+
+# MkDocs 构建产物（每次 mkdocs build 都会重新生成，不用存）
+site/
+
+# Python 自动生成的缓存
+__pycache__/
+*.pyc

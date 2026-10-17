@@ -1,7 +1,7 @@
 site_name: My Notes
 site_description: a WHUer's Notes
 site_author: Jack
-repo_url: https://github.com/Jackli08/math-notes
+repo_url: https://github.com/Jackli08/whu-notes
 
 theme: 
   name: material
