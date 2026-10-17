@@ -1,0 +1,51 @@
+site_name: My Notes
+site_description: a WHUer's Notes
+site_author: Jack
+repo_url: https://github.com/Jackli08/math-notes
+
+theme: 
+  name: material
+  language: zh
+  features: 
+    - navigation.tracking     # 滚动侧边栏高光
+    - navigation.indexes      # 允许章节首页作为可点击入口
+    - navigation.top          # 右下角返回顶部
+    - search.highlight        # 搜索结果高亮
+    - search.suggest          # 搜索补全
+  palette: 
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle: 
+      icon: material/brightness-7
+      name: 切换深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: 
+      icon: material/brightness-4
+      name: 切换浅色模式
+
+markdown_extensions: 
+  - admonition                # 支持!!!note提示块
+  - pymdownx.details          # 可折叠的块
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tabbed: 
+      alternate_style: true   # 支持多标签分组
+  - attr_list                 # 给元素加自定义属性
+
+nav: 
+  - 首页: index.md
+  - 高等数学: 
+    - 章节概览: calculus/index.md
+    - 极限: calculus/limit-continuous.md
+  - 线性代数: 
+    - 章节概览: linear-algebra/index.md
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
